@@ -122,7 +122,7 @@ class ViewController: UIViewController {
             (accelTilt, accelTiltAngle) = calculateAccelTilt(sample: sample)
             let (gyroTiltDelta, gyroTiltAngleDelta) = calculateAccelTilt(sample: sample)
             gyroTilt = zip(gyroTilt, gyroTiltDelta).map(+)
-            gyroTiltAngle += gyroTiltAngleDelta
+            gyroTiltAngle = sqrt(pow(gyroTilt[0],2) + pow(gyroTilt[1],2))
             
             calculateFusedTilt(sample: sample)
 
